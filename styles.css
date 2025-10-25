@@ -63,6 +63,8 @@
     flex-direction: column;
     position: relative;
     width: 100%;
+    margin-top:30% !important;
+    justify-content: center;
 }
 
 .invitation-content {
@@ -74,17 +76,18 @@
     width: 20%;
     height: auto;
 }
-.birds{
-    width: 7%; 
-    margin-top: -10px; 
-    left:20%;
-    position: absolute;     
+.birds,
+.Birds2 {
+  width: 7%;
+  min-width: 60px;
+  max-width: 120px;
+  position: absolute;
+  bottom: 0;
+  margin-top: 0;
 }
-.Birds2{
-    width: 7%; 
-    margin-top: -10px; 
-    right:20%;
-    position: absolute;
+.birds-lower {
+  /* Helper for birds placed lower */
+  bottom: 0 !important;
 }
 .building1{
   left: 5%;
