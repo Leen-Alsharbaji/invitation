@@ -75,9 +75,41 @@
     right:20%;
     position: absolute;
 }
-
+.building1{
+  left: 5%;
+  position: absolute;
+  width: 12%;
+  top: 2%;
+    
+}
+.building2{
+ position: absolute;
+ width: 20%;
+ left:20%;
+}
+.building3{
+  position: absolute;
+  width: 10%;
+  left:15%;
+  top: 53%;
+}
+.building4{
+   display: none !important;
+}
+.building5{
+    display: none !important;
+}
+.building6{
+ display: none !important;
+}
+.building8{
+   display: none !important;
+}
+.building9{
+   display: none !important;
+}
 /* Media queries for phones */
-@media screen and (max-width: 790px) {
+@media screen and (max-width: 800px) {
     h1 {
         font-size: 16px;
         
@@ -106,5 +138,8 @@
     margin-top: -10px; 
     right:5%;
     position: absolute;
+}
+.building3{
+  top: 20% !important;
 }
 }
