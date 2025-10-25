@@ -18,35 +18,37 @@
         rel="stylesheet">
 </head>
 
+
 <body>
-    <div class="invitation-container">
-        <div class="invitation-content">
-            <img src="media/Bird-logo.svg" alt="Decorative Top" style="width: 7%; margin-top: 20px;" />
-        </div>
-        <p class="lateef-regular" style="font-size: large;">تحت رعاية كريمة من سيادة محافظ دمشق</p>
-        <h1 class="lateef-extrabold" style="margin-top: 0 ;">السيد ماهر مروان ادلبي</h1>
-        <p class="lateef-bold" style="font-size: large; margin-top: 2%; text-align: center;">تدعوكم محافظة دمشق <br>
+    <div class="page-fade">
+        <div class="invitation-container">
+                <div class="invitation-content">
+                        <img src="media/Bird-logo.svg" alt="Decorative Top" style="width: 7%; margin-top: 20px;" />
+                </div>
+        <p class="lateef-regular fade-text" style="font-size: large;">تحت رعاية كريمة من سيادة محافظ دمشق</p>
+        <h1 class="lateef-extrabold fade-text" style="margin-top: 0 ;">السيد ماهر مروان ادلبي</h1>
+        <p class="lateef-bold fade-text" style="font-size: large; margin-top: 2%; text-align: center;">تدعوكم محافظة دمشق <br>
             <img class="birds" src="media/Birds1.svg" alt="">
             <img class="Birds2" src="media/Birds2.svg" alt="">
             لحضور فعالية إطلاق مديرية التنمية المحلية تحت شعار
         </p>
-        <img class="logo" src="media/Logo.svg" alt="Invitation Graphic" />
-    </div>
-    <div class="invitation-photos"
-        style="display: flex; flex-grow: 1; height: 100vh; position: relative; margin-top: 3%;">
-    <img src="media/Asset 12.svg" class="building1 building-fade" alt="">
-    <img src="media/Asset 14.svg" class="building2 building-fade" alt="Photo 1">
-    <img src="media/Asset 8.svg" class="building3 building-fade" alt="Photo 2">
+        <img class="logo fade-text" src="media/Logo.svg" alt="Invitation Graphic" />
+        </div>
+        <div class="invitation-photos"
+                style="display: flex; flex-grow: 1; height: 100vh; position: relative; margin-top: 3%;">
+                <img src="media/Asset 12.svg" class="building1 building-fade" alt="">
+                <img src="media/Asset 14.svg" class="building2 building-fade" alt="Photo 1">
+                <img src="media/Asset 8.svg" class="building3 building-fade" alt="Photo 2">
 
-    <img src="media/Asset 13.svg" class="building4 building-fade" alt="Photo 3">
-    <img src="media/Asset 11.svg" class="building5 building-fade" alt="">
-    <img src="media/Asset 6.svg" class="building7 building-fade" alt="">
-    <img src="media/Asset 7.svg" class="building6 building-fade" alt="">
+                <img src="media/Asset 13.svg" class="building4 building-fade" alt="Photo 3">
+                <img src="media/Asset 11.svg" class="building5 building-fade" alt="">
+                <img src="media/Asset 6.svg" class="building7 building-fade" alt="">
+                <img src="media/Asset 7.svg" class="building6 building-fade" alt="">
 
-    <img src="media/Asset 10.svg" class="building8 building-fade" alt="">
-    <img src="media/Asset 9.svg" class="building9 building-fade" alt="">
-    <img src="media/Asset 5.svg" class="building10 building-fade" alt="">
-        <div class="invitation-footer">
+                <img src="media/Asset 10.svg" class="building8 building-fade" alt="">
+                <img src="media/Asset 9.svg" class="building9 building-fade" alt="">
+                <img src="media/Asset 5.svg" class="building10 building-fade" alt="">
+        <div class="invitation-footer fade-text">
             <p class="lateef-regular">حيث يلتقي العمل المجتمعي
                 بالرؤية التنموية لرسم
                 ملامح المستقبل<br>
@@ -59,22 +61,39 @@
 
             <img src="media/FLower.svg"  style="width: 10%; margin:20%" alt="">
         </div>
+        </div>
     </div>
-    </div>
-
-
         <script>
-            // Animate buildings one after another
+            // Fade in the whole page, then text, then buildings strictly in order
             window.addEventListener('DOMContentLoaded', function() {
-                const buildings = document.querySelectorAll('.building-fade');
-                buildings.forEach((img, i) => {
-                    setTimeout(() => {
-                        img.classList.add('visible');
-                    }, 300 * i);
-                });
+                const page = document.querySelector('.page-fade');
+                page.classList.add('visible');
+                setTimeout(() => {
+                    const textEls = document.querySelectorAll('.fade-text');
+                    let t = 0;
+                    function fadeTextNext() {
+                        if (t >= textEls.length) {
+                            // After all text, start buildings
+                            const buildings = document.querySelectorAll('.building-fade');
+                            let i = 0;
+                            function fadeBuildingNext() {
+                                if (i >= buildings.length) return;
+                                buildings[i].classList.add('visible');
+                                i++;
+                                setTimeout(fadeBuildingNext, 800);
+                            }
+                            fadeBuildingNext();
+                            return;
+                        }
+                        textEls[t].classList.add('visible');
+                        t++;
+                        setTimeout(fadeTextNext, 400);
+                    }
+                    fadeTextNext();
+                }, 1000); // Wait for main fade-in
             });
         </script>
-        <script src="main.js" defer></script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>
