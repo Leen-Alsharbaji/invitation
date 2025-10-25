@@ -57,12 +57,17 @@
 .invitation-content {
     text-align: center;
     width: 100%;
+} 
+.logo{
+    margin-top: 3%;
+    width: 20%;
+    height: auto;
 }
 
 
 
 /* Media queries for phones */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 790px) {
     h1 {
         font-size: 16px;
         
@@ -70,5 +75,10 @@
     
     .invitation-content img {
         width: 15% !important;
+    }
+
+    .logo {
+        width: 60% !important;
+        height: auto !important;
     }
 }
