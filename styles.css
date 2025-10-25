@@ -147,6 +147,14 @@
     text-align: center; 
     margin: 2%;
 }
+/* Fade-in animation for buildings */
+.building-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.building-fade.visible {
+  opacity: 1;
+}
 /* Media queries for phones */
 @media screen and (max-width: 800px) {
     h1 {

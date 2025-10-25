@@ -34,18 +34,18 @@
     </div>
     <div class="invitation-photos"
         style="display: flex; flex-grow: 1; height: 100vh; position: relative; margin-top: 3%;">
-        <img src="media/Asset 12.svg" class="building1" alt="">
-        <img src="media/Asset 14.svg" class="building2" alt="Photo 1">
-        <img src="media/Asset 8.svg" class="building3" alt="Photo 2">
+    <img src="media/Asset 12.svg" class="building1 building-fade" alt="">
+    <img src="media/Asset 14.svg" class="building2 building-fade" alt="Photo 1">
+    <img src="media/Asset 8.svg" class="building3 building-fade" alt="Photo 2">
 
-        <img src="media/Asset 13.svg" class="building4" alt="Photo 3">
-        <img src="media/Asset 11.svg" class="building5" alt="">
-        <img src="media/Asset 6.svg" class="building7" alt="">
-        <img src="media/Asset 7.svg" class="building6" alt="">
+    <img src="media/Asset 13.svg" class="building4 building-fade" alt="Photo 3">
+    <img src="media/Asset 11.svg" class="building5 building-fade" alt="">
+    <img src="media/Asset 6.svg" class="building7 building-fade" alt="">
+    <img src="media/Asset 7.svg" class="building6 building-fade" alt="">
 
-        <img src="media/Asset 10.svg" class="building8" alt="">
-        <img src="media/Asset 9.svg" class="building9" alt="">
-        <img src="media/Asset 5.svg" class="building10" alt="">
+    <img src="media/Asset 10.svg" class="building8 building-fade" alt="">
+    <img src="media/Asset 9.svg" class="building9 building-fade" alt="">
+    <img src="media/Asset 5.svg" class="building10 building-fade" alt="">
         <div class="invitation-footer">
             <p class="lateef-regular">حيث يلتقي العمل المجتمعي
                 بالرؤية التنموية لرسم
@@ -63,7 +63,18 @@
     </div>
 
 
-    <script src="main.js" defer></script>
+        <script>
+            // Animate buildings one after another
+            window.addEventListener('DOMContentLoaded', function() {
+                const buildings = document.querySelectorAll('.building-fade');
+                buildings.forEach((img, i) => {
+                    setTimeout(() => {
+                        img.classList.add('visible');
+                    }, 300 * i);
+                });
+            });
+        </script>
+        <script src="main.js" defer></script>
 </body>
 
 </html>
