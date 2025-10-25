@@ -63,36 +63,70 @@
         </div>
         </div>
     </div>
-        <script>
-            // Fade in the whole page, then text, then buildings strictly in order
-            window.addEventListener('DOMContentLoaded', function() {
-                const page = document.querySelector('.page-fade');
-                page.classList.add('visible');
-                setTimeout(() => {
-                    const textEls = document.querySelectorAll('.fade-text');
-                    let t = 0;
-                    function fadeTextNext() {
-                        if (t >= textEls.length) {
-                            // After all text, start buildings
-                            const buildings = document.querySelectorAll('.building-fade');
-                            let i = 0;
-                            function fadeBuildingNext() {
-                                if (i >= buildings.length) return;
-                                buildings[i].classList.add('visible');
-                                i++;
-                                setTimeout(fadeBuildingNext, 800);
+                <script>
+                    // Fade in the whole page, then text, then trigger buildings/footer on scroll
+                    window.addEventListener('DOMContentLoaded', function() {
+                        const page = document.querySelector('.page-fade');
+                        page.classList.add('visible');
+                        setTimeout(() => {
+                            // Fade in text (except footer)
+                            const textEls = Array.from(document.querySelectorAll('.fade-text'));
+                            // Exclude footer from initial text fade
+                            const footer = document.querySelector('.invitation-footer');
+                            const mainTextEls = textEls.filter(el => el !== footer);
+                            let t = 0;
+                            function fadeTextNext() {
+                                if (t >= mainTextEls.length) {
+                                    // After all text, set up scroll triggers for buildings and footer
+                                    setupScrollAnimations();
+                                    return;
+                                }
+                                mainTextEls[t].classList.add('visible');
+                                t++;
+                                setTimeout(fadeTextNext, 400);
                             }
-                            fadeBuildingNext();
-                            return;
+                            fadeTextNext();
+                        }, 1000);
+
+                        function setupScrollAnimations() {
+                            // Buildings: fade in when .invitation-photos is visible
+                            const photosSection = document.querySelector('.invitation-photos');
+                            const buildings = document.querySelectorAll('.building-fade');
+                            let buildingsAnimated = false;
+                            const observer = new window.IntersectionObserver((entries, obs) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting && !buildingsAnimated) {
+                                        buildingsAnimated = true;
+                                        let i = 0;
+                                        function fadeBuildingNext() {
+                                            if (i >= buildings.length) return;
+                                            buildings[i].classList.add('visible');
+                                            i++;
+                                            setTimeout(fadeBuildingNext, 800);
+                                        }
+                                        fadeBuildingNext();
+                                        obs.disconnect();
+                                    }
+                                });
+                            }, { threshold: 0.2 });
+                            observer.observe(photosSection);
+
+                            // Footer: fade in when visible
+                            const footer = document.querySelector('.invitation-footer');
+                            let footerAnimated = false;
+                            const footerObserver = new window.IntersectionObserver((entries, obs) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting && !footerAnimated) {
+                                        footerAnimated = true;
+                                        footer.classList.add('visible');
+                                        obs.disconnect();
+                                    }
+                                });
+                            }, { threshold: 0.2 });
+                            footerObserver.observe(footer);
                         }
-                        textEls[t].classList.add('visible');
-                        t++;
-                        setTimeout(fadeTextNext, 400);
-                    }
-                    fadeTextNext();
-                }, 1000); // Wait for main fade-in
-            });
-        </script>
+                    });
+                </script>
     <script src="main.js" defer></script>
 </body>
 
