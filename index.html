@@ -34,8 +34,7 @@
         </p>
         <img class="logo fade-text" src="media/Logo.svg" alt="Invitation Graphic" />
         </div>
-        <div class="invitation-photos"
-                style="display: flex; flex-grow: 1; height: 100vh; position: relative; margin-top: 3%;">
+        <div class="invitation-photos" style="display: flex; flex-grow: 1; height: 100vh; position: relative; margin-top:30%; @media screen and (max-width: 800px) {margin-top:60%;}">
                 <img src="media/Asset 12.svg" class="building1 building-fade" alt="">
                 <img src="media/Asset 14.svg" class="building2 building-fade" alt="Photo 1">
                 <img src="media/Asset 8.svg" class="building3 building-fade" alt="Photo 2">
@@ -45,7 +44,7 @@
                 <img src="media/Asset 6.svg" class="building7 building-fade" alt="">
                 <img src="media/Asset 7.svg" class="building6 building-fade" alt="">
 
-                <img src="media/Asset 10.svg" class="building8 building-fade" alt="">
+                <img src="media/Asset 6 (1).svg" class="building8 building-fade" alt="">
                 <img src="media/Asset 9.svg" class="building9 building-fade" alt="">
                 <img src="media/Asset 5.svg" class="building10 building-fade" alt="">
         <div class="invitation-footer fade-text">
@@ -65,67 +64,67 @@
     </div>
                 <script>
                     // Fade in the whole page, then text, then trigger buildings/footer on scroll
-                    window.addEventListener('DOMContentLoaded', function() {
-                        const page = document.querySelector('.page-fade');
-                        page.classList.add('visible');
-                        setTimeout(() => {
-                            // Fade in text (except footer)
-                            const textEls = Array.from(document.querySelectorAll('.fade-text'));
-                            // Exclude footer from initial text fade
-                            const footer = document.querySelector('.invitation-footer');
-                            const mainTextEls = textEls.filter(el => el !== footer);
-                            let t = 0;
-                            function fadeTextNext() {
-                                if (t >= mainTextEls.length) {
-                                    // After all text, set up scroll triggers for buildings and footer
-                                    setupScrollAnimations();
-                                    return;
-                                }
-                                mainTextEls[t].classList.add('visible');
-                                t++;
-                                setTimeout(fadeTextNext, 400);
-                            }
-                            fadeTextNext();
-                        }, 1000);
+                                window.addEventListener('DOMContentLoaded', function() {
+                                    const page = document.querySelector('.page-fade');
+                                    page.classList.add('visible');
+                                    setTimeout(() => {
+                                        // Fade in text (except footer)
+                                        const textEls = Array.from(document.querySelectorAll('.fade-text'));
+                                        // Exclude footer from initial text fade
+                                        const footer = document.querySelector('.invitation-footer');
+                                        const mainTextEls = textEls.filter(el => el !== footer);
+                                        let t = 0;
+                                                        function fadeTextNext() {
+                                                            if (t >= mainTextEls.length) {
+                                                                // After all text, set up scroll triggers for buildings and footer
+                                                                setupScrollAnimationsOnSectionView();
+                                                                return;
+                                                            }
+                                                            mainTextEls[t].classList.add('visible');
+                                                            t++;
+                                                            setTimeout(fadeTextNext, 180); // faster text fade
+                                                        }
+                                        fadeTextNext();
+                                    }, 1000);
 
-                        function setupScrollAnimations() {
-                            // Buildings: fade in when .invitation-photos is visible
-                            const photosSection = document.querySelector('.invitation-photos');
-                            const buildings = document.querySelectorAll('.building-fade');
-                            let buildingsAnimated = false;
-                            const observer = new window.IntersectionObserver((entries, obs) => {
-                                entries.forEach(entry => {
-                                    if (entry.isIntersecting && !buildingsAnimated) {
-                                        buildingsAnimated = true;
-                                        let i = 0;
-                                        function fadeBuildingNext() {
-                                            if (i >= buildings.length) return;
-                                            buildings[i].classList.add('visible');
-                                            i++;
-                                            setTimeout(fadeBuildingNext, 800);
-                                        }
-                                        fadeBuildingNext();
-                                        obs.disconnect();
+                                    function setupScrollAnimationsOnSectionView() {
+                                        // Buildings: fade in when .invitation-photos is visible
+                                        const photosSection = document.querySelector('.invitation-photos');
+                                        const buildings = document.querySelectorAll('.building-fade');
+                                        let buildingsAnimated = false;
+                                        const observer = new window.IntersectionObserver((entries, obs) => {
+                                            entries.forEach(entry => {
+                                                if (entry.isIntersecting && !buildingsAnimated) {
+                                                    buildingsAnimated = true;
+                                                    let i = 0;
+                                                    function fadeBuildingNext() {
+                                                        if (i >= buildings.length) return;
+                                                        buildings[i].classList.add('visible');
+                                                        i++;
+                                                        setTimeout(fadeBuildingNext, 320); // faster building fade
+                                                    }
+                                                    fadeBuildingNext();
+                                                    obs.disconnect();
+                                                }
+                                            });
+                                        }, { threshold: 0.2 });
+                                        observer.observe(photosSection);
+
+                                        // Footer: fade in when visible
+                                        const footer = document.querySelector('.invitation-footer');
+                                        let footerAnimated = false;
+                                        const footerObserver = new window.IntersectionObserver((entries, obs) => {
+                                            entries.forEach(entry => {
+                                                if (entry.isIntersecting && !footerAnimated) {
+                                                    footerAnimated = true;
+                                                    footer.classList.add('visible');
+                                                    obs.disconnect();
+                                                }
+                                            });
+                                        }, { threshold: 0.2 });
+                                        footerObserver.observe(footer);
                                     }
                                 });
-                            }, { threshold: 0.2 });
-                            observer.observe(photosSection);
-
-                            // Footer: fade in when visible
-                            const footer = document.querySelector('.invitation-footer');
-                            let footerAnimated = false;
-                            const footerObserver = new window.IntersectionObserver((entries, obs) => {
-                                entries.forEach(entry => {
-                                    if (entry.isIntersecting && !footerAnimated) {
-                                        footerAnimated = true;
-                                        footer.classList.add('visible');
-                                        obs.disconnect();
-                                    }
-                                });
-                            }, { threshold: 0.2 });
-                            footerObserver.observe(footer);
-                        }
-                    });
                 </script>
     <script src="main.js" defer></script>
 </body>
