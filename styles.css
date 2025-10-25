@@ -59,11 +59,7 @@
     width: 100%;
 }
 
-h1 {
-    margin-top: 6%;
-    position: absolute;
-    font-size: 24px;
-}
+
 
 /* Media queries for phones */
 @media screen and (max-width: 600px) {
