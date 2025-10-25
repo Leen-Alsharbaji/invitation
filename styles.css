@@ -1,0 +1,78 @@
+.lateef-extralight {
+  font-family: "Lateef", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.lateef-light {
+  font-family: "Lateef", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lateef-regular {
+  font-family: "Lateef", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lateef-medium {
+  font-family: "Lateef", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.lateef-semibold {
+  font-family: "Lateef", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.lateef-bold {
+  font-family: "Lateef", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lateef-extrabold {
+  font-family: "Lateef", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+ html,body{
+    background: #0c383b !important;
+    color : #baa873!important;
+    direction: rtl;
+}
+
+.invitation-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.invitation-content {
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    margin-top: 6%;
+    position: absolute;
+    font-size: 24px;
+}
+
+/* Media queries for phones */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 16px;
+        margin-top: 15%;
+    }
+    
+    .invitation-content img {
+        width: 15% !important;
+    }
+}
