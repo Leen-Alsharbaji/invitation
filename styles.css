@@ -71,8 +71,7 @@
 .invitation-photos {
     display: flex;
     flex-grow: 1;
-  
-    height: 170vh;
+    height: 100vh;
     position: relative;
 
 }
@@ -123,7 +122,8 @@
   top: 0;
   width:100vw;
   height: 100vw;
-
+  justify-content: center;
+ 
   aspect-ratio: 1/1;
   display: flex;
 }
@@ -145,7 +145,7 @@
 
 .invitation-footer{
     position: absolute;
-   top: 40% !important;
+   top: 50% !important;
     width: 100%;
     font-size: larger !important;
 }}
