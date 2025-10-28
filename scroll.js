@@ -6,7 +6,7 @@ const context = canvas.getContext("2d");
 canvas.width = 1080;
 canvas.height = 1080;
 
-const frameCount = 103;
+const frameCount = 64;
 const currentFrame = index => (
   `media/output/Final_${(index + 1).toString().padStart(5, '0')}.webp`
 );
