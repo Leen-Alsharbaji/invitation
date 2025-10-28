@@ -23,7 +23,7 @@
     <div class="page-fade">
         <div class="invitation-container" >
                 <div class="invitation-content">
-                        <img src="media/Bird-logo.svg" alt="Decorative Top" style="width: 7%; margin-top: 40px; margin: 5%;" />
+                       <img src="media/Bird-logo.svg" alt="Decorative Top" style="width: 7%; margin-top: 40px; margin: 5%;" /> 
                 </div>
         <p class="lateef-regular fade-text" style="font-size: large;">تحت رعاية كريمة من سيادة محافظ دمشق</p>
         <h1 class="lateef-extrabold fade-text" style="margin-top: 0 ;">السيد ماهر مروان ادلبي</h1>
@@ -36,26 +36,9 @@
         
         </div>
         <!-- Logo and birds before buildings -->
-        <div class="before-buildings" style="width: 100%; display: flex; flex-direction: column; align-items: center; margin-top: 10%; margin-bottom: 2rem;">
-            <img class="logo fade-text" src="media/Logo.svg" alt="Invitation Graphic" style="margin-bottom: 0.5rem;" />
-            <div class="birds-row" style="position: relative; width: 100%; height: 60px; display: flex; justify-content: center; align-items: flex-end;">
-                <img class="birds birds-lower" src="media/Birds1.svg" alt="Birds Left" style="position: absolute; left: 18%; bottom: 0;" />
-                <img class="Birds2 birds-lower" src="media/Birds2.svg" alt="Birds Right" style="position: absolute; right: 18%; bottom: 0;" />
-            </div>
-        </div>
-        <div class="invitation-photos" style="display: flex; flex-grow: 1; height: 100vh; position: relative; margin-top:30%; @media screen and (max-width: 800px) {margin-top:60%;}">
-                <img src="media/Asset 12.svg" class="building1 building-fade" alt="">
-                <img src="media/Asset 14.svg" class="building2 building-fade" alt="Photo 1">
-                <img src="media/Asset 8.svg" class="building3 building-fade" alt="Photo 2">
-
-                <img src="media/Asset 13.svg" class="building4 building-fade" alt="Photo 3">
-                <img src="media/Asset 11.svg" class="building5 building-fade" alt="">
-                <img src="media/Asset 6.svg" class="building7 building-fade" alt="">
-                <img src="media/Asset 7.svg" class="building6 building-fade" alt="">
-
-                <img src="media/Asset 6 (1).svg" class="building8 building-fade" alt="">
-                <img src="media/Asset 9.svg" class="building9 building-fade" alt="">
-                <img src="media/Asset 5.svg" class="building10 building-fade" alt="">
+       
+        <div class="invitation-photos" >
+                <canvas id="hero-lightpass" class="canvas"></canvas>
         <div class="invitation-footer fade-text">
             <p class="lateef-regular">حيث يلتقي العمل المجتمعي
                 بالرؤية التنموية لرسم
@@ -67,7 +50,7 @@
                 يرسم ملامح مستقبل دمشق</p>
             <p class="lateef-regular">11/05/ 2025       |       الساعة 7:00 مساءً       |       قصر العظم - دمشق</p>
 
-            <img src="media/FLower.svg"  style="width: 10%; margin:20%" alt="">
+            <img src="media/FLower.svg"  style="width: 10%; margin:20%; margin-top: 40%;" alt="">
         </div>
         </div>
     </div>
@@ -135,7 +118,9 @@
                                     }
                                 });
                 </script>
-    <script src="main.js" defer></script>
+    <script src="scroll.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </body>
 
 </html>
