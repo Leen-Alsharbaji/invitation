@@ -71,7 +71,7 @@
 .invitation-photos {
     display: flex;
     flex-grow: 1;
-    height: 100vh;
+    height: 120vh;
     position: relative;
 
 }
