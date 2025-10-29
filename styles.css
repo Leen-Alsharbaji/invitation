@@ -1,6 +1,9 @@
 /* Animated arrow (up and down) */
 .arrow-bounce {
   animation: arrowBounce 1.8s infinite cubic-bezier(.45,0,.55,1);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 @keyframes arrowBounce {
   0% { transform: translateY(0); }
@@ -51,6 +54,9 @@
 
  html,body{
     background-image: url('media/Bg2.svg')!important;
+    -webkit-transform: translate3d(0, 0, 0);
+     transform: translate3d(0, 0, 0);
+  will-change: transform;
     background-size: cover;
     background-repeat: no-repeat;
     color : #baa873!important;
@@ -61,6 +67,9 @@
 
 .invitation-container {
     align-items: center;
+       -webkit-transform: translate3d(0, 0, 0);
+     transform: translate3d(0, 0, 0);
+  will-change: transform;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -70,6 +79,9 @@
 }
 .invitation-photos {
     display: flex;
+       -webkit-transform: translate3d(0, 0, 0);
+     transform: translate3d(0, 0, 0);
+  will-change: transform;
     flex-grow: 1;
     height: 120vh;
     position: relative;
@@ -78,6 +90,9 @@
 
 .invitation-content {
     text-align: center;
+       -webkit-transform: translate3d(0, 0, 0);
+     transform: translate3d(0, 0, 0);
+  will-change: transform;
      align-items: center;
     justify-content: center;
     width: 100%;
@@ -85,6 +100,9 @@
 
 .invitation-footer{
     position: absolute;
+       -webkit-transform: translate3d(0, 0, 0);
+     transform: translate3d(0, 0, 0);
+  will-change: transform;
    top:50%;
     width: 100%;
     font-size: x-large;
@@ -119,6 +137,9 @@
 
 .canvas {
   position: absolute;
+     -webkit-transform: translate3d(0, 0, 0);
+     transform: translate3d(0, 0, 0);
+  will-change: transform;
   top: 0;
   width:100vw;
   height: 100vw;
