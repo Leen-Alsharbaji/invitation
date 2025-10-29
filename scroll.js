@@ -12,7 +12,7 @@ const currentFrame = index => (
 );
 
 const images = [];
-const airpods = { frame: 0 };
+const airpods = { frame: 20 };
 let loadedFrames = 0;
 const initialPreloadCount = 5;
 let lastRenderedFrame = -1;

@@ -14,114 +14,119 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lateef:wght@200;300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
 </head>
 
 
 <body>
     <div class="page-fade">
-        <div class="invitation-container" >
-                <div class="invitation-content">
-                       <img src="media/Bird-logo.svg" alt="Decorative Top" style="width: 7%; margin-top: 40px; margin: 5%;" /> 
-                </div>
-        <p class="lateef-regular fade-text" style="font-size: large;">تحت رعاية كريمة من سيادة محافظ دمشق</p>
-        <h1 class="lateef-extrabold fade-text" style="margin-top: 0 ;">السيد ماهر مروان ادلبي</h1>
-        <p class="lateef-bold fade-text" style="font-size: large; margin-top: 2%; text-align: center;">تدعوكم محافظة دمشق <br>  لحضور فعالية إطلاق مديرية التنمية المحلية تحت شعار
-        </p>
-            
-        <div class="invitation-section" style="width: 100%; height: 30vw; display: flex; flex-grow: 1; justify-content: center;"> 
-            <img src="media/Asset 1.svg" class="arrow-bounce" style="width: 30%; height: 30%; margin-top: 5%;" alt="Arrow Down" />
-        </div>
-        
+        <div class="invitation-container">
+            <div class="invitation-content">
+                <img src="media/Bird-logo.svg" alt="Decorative Top" style="width: 7%; margin-top: 40px; margin: 5%;" />
+            </div>
+            <p class="kufam-font fade-text" style="font-size: large;">تحت رعاية كريمة من سيادة محافظ دمشق</p>
+            <h1 class="kufam-font" style="margin-top: 0 ; font-weight: 400 !important; font-size: large  !important;">
+                السيد ماهر مروان ادلبي</h1>
+            <p class="kufam-font fade-text" style="font-size: large; margin-top: 2%; text-align: center;">تدعوكم محافظة
+                دمشق <br> لحضور فعالية إطلاق مديرية التنمية المحلية تحت شعار
+            </p>
+
+            <div class="invitation-section"
+                style="width: 100%; height: 30vw; display: flex; flex-grow: 1; justify-content: center;">
+                <img src="media/Asset 1.svg" class="arrow-bounce" style="width: 30%; height: 30%; margin-top: 5%;"
+                    alt="Arrow Down" />
+            </div>
+
         </div>
         <!-- Logo and birds before buildings -->
-       
-        <div class="invitation-photos" >
-                <canvas id="hero-lightpass" class="canvas"></canvas>
-        <div class="invitation-footer fade-text">
-            <p class="lateef-regular">حيث يلتقي العمل المجتمعي
-                بالرؤية التنموية لرسم
-                ملامح المستقبل<br>
-                دمشق… المدينة التي تنهض لتُروى حكايتها من جديد.</p>
+
+        <div class="invitation-photos">
+            <canvas id="hero-lightpass" class="canvas"></canvas>
+            <div class="invitation-footer fade-text">
+                <p class="kufam-font" style="font-size: x-small !important;">حيث يلتقي العمل المجتمعي
+                    بالرؤية التنموية لرسم
+                    ملامح المستقبل<br>
+                    دمشق… المدينة التي تنهض لتُروى حكايتها من جديد. </p>
 
 
-            <p class="lateef-extralight" style="margin-top: 25%;">نتشرف بحضوركم ومشاركتكم بهذا الحدث الفريد والمميز <br>الذي
-                يرسم ملامح مستقبل دمشق</p>
-            <p class="lateef-regular">11/05/ 2025       |       الساعة 7:00 مساءً       |       قصر العظم - دمشق</p>
+                <p class="kufam-font" style="margin-top:30% !important; margin: 5%; font-size: x-small !important;">
+                    نتشرف بحضوركم ومشاركتكم بهذا الحدث الفريد والمميز الذي
+                    يرسم ملامح مستقبل دمشق</p>
+                <p class="kufam-font" style="font-size: x-small !important;">11/05/ 2025 | الساعة 7:00 مساءً | قصر العظم - دمشق</p>
 
-            <img src="media/FLower.svg"  style="width: 10%; margin:10%;" alt="">
-            <p class="lateef-light" >دعوة خاصة بالاسم</p>
-        </div>
+                <img src="media/FLower.svg" style="width: 10%; margin:10%; " alt="">
+                <p class="kufam-font" style="font-size: x-small !important;">دعوة خاصة بالاسم</p>
+            </div>
         </div>
     </div>
-                <script>
-                    // Fade in the whole page, then text, then trigger buildings/footer on scroll
-                                window.addEventListener('DOMContentLoaded', function() {
-                                    const page = document.querySelector('.page-fade');
-                                    page.classList.add('visible');
-                                    setTimeout(() => {
-                                        // Fade in text (except footer)
-                                        const textEls = Array.from(document.querySelectorAll('.fade-text'));
-                                        // Exclude footer from initial text fade
-                                        const footer = document.querySelector('.invitation-footer');
-                                        const mainTextEls = textEls.filter(el => el !== footer);
-                                        let t = 0;
-                                                        function fadeTextNext() {
-                                                            if (t >= mainTextEls.length) {
-                                                                // After all text, set up scroll triggers for buildings and footer
-                                                                setupScrollAnimationsOnSectionView();
-                                                                return;
-                                                            }
-                                                            mainTextEls[t].classList.add('visible');
-                                                            t++;
-                                                            setTimeout(fadeTextNext, 180); // faster text fade
-                                                        }
-                                        fadeTextNext();
-                                    }, 1000);
+    <script>
+        // Fade in the whole page, then text, then trigger buildings/footer on scroll
+        window.addEventListener('DOMContentLoaded', function () {
+            const page = document.querySelector('.page-fade');
+            page.classList.add('visible');
+            setTimeout(() => {
+                // Fade in text (except footer)
+                const textEls = Array.from(document.querySelectorAll('.fade-text'));
+                // Exclude footer from initial text fade
+                const footer = document.querySelector('.invitation-footer');
+                const mainTextEls = textEls.filter(el => el !== footer);
+                let t = 0;
+                function fadeTextNext() {
+                    if (t >= mainTextEls.length) {
+                        // After all text, set up scroll triggers for buildings and footer
+                        setupScrollAnimationsOnSectionView();
+                        return;
+                    }
+                    mainTextEls[t].classList.add('visible');
+                    t++;
+                    setTimeout(fadeTextNext, 180); // faster text fade
+                }
+                fadeTextNext();
+            }, 1000);
 
-                                    function setupScrollAnimationsOnSectionView() {
-                                        // Buildings: fade in when .invitation-photos is visible
-                                        const photosSection = document.querySelector('.invitation-photos');
-                                        const buildings = document.querySelectorAll('.building-fade');
-                                        let buildingsAnimated = false;
-                                        const observer = new window.IntersectionObserver((entries, obs) => {
-                                            entries.forEach(entry => {
-                                                if (entry.isIntersecting && !buildingsAnimated) {
-                                                    buildingsAnimated = true;
-                                                    let i = 0;
-                                                    function fadeBuildingNext() {
-                                                        if (i >= buildings.length) return;
-                                                        buildings[i].classList.add('visible');
-                                                        i++;
-                                                        setTimeout(fadeBuildingNext, 320); // faster building fade
-                                                    }
-                                                    fadeBuildingNext();
-                                                    obs.disconnect();
-                                                }
-                                            });
-                                        }, { threshold: 0.2 });
-                                        observer.observe(photosSection);
+            function setupScrollAnimationsOnSectionView() {
+                // Buildings: fade in when .invitation-photos is visible
+                const photosSection = document.querySelector('.invitation-photos');
+                const buildings = document.querySelectorAll('.building-fade');
+                let buildingsAnimated = false;
+                const observer = new window.IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !buildingsAnimated) {
+                            buildingsAnimated = true;
+                            let i = 0;
+                            function fadeBuildingNext() {
+                                if (i >= buildings.length) return;
+                                buildings[i].classList.add('visible');
+                                i++;
+                                setTimeout(fadeBuildingNext, 320); // faster building fade
+                            }
+                            fadeBuildingNext();
+                            obs.disconnect();
+                        }
+                    });
+                }, { threshold: 0.2 });
+                observer.observe(photosSection);
 
-                                        // Footer: fade in when visible
-                                        const footer = document.querySelector('.invitation-footer');
-                                        let footerAnimated = false;
-                                        const footerObserver = new window.IntersectionObserver((entries, obs) => {
-                                            entries.forEach(entry => {
-                                                if (entry.isIntersecting && !footerAnimated) {
-                                                    footerAnimated = true;
-                                                    footer.classList.add('visible');
-                                                    obs.disconnect();
-                                                }
-                                            });
-                                        }, { threshold: 0.2 });
-                                        footerObserver.observe(footer);
-                                    }
-                                });
-                </script>
+                // Footer: fade in when visible
+                const footer = document.querySelector('.invitation-footer');
+                let footerAnimated = false;
+                const footerObserver = new window.IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !footerAnimated) {
+                            footerAnimated = true;
+                            footer.classList.add('visible');
+                            obs.disconnect();
+                        }
+                    });
+                }, { threshold: 0.2 });
+                footerObserver.observe(footer);
+            }
+        });
+    </script>
     <script src="scroll.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </body>
 
 </html>
